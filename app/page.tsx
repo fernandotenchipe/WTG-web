@@ -66,7 +66,7 @@ export default function Home() {
                   isTop ? "text-[17px]" : "text-base"
                 }`}
               >
-                WTG Freight Lines
+                WTG | Way To Go
               </p>
               <p className="text-xs text-slate-600">Transporte terrestre de carga</p>
             </div>
