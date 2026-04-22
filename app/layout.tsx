@@ -15,7 +15,7 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "WTG Freight Lines | Transporte de Carga por Carretera",
+  title: "WTG | Way To Go | Transporte de Carga por Carretera",
   description:
     "Operador logistico especializado en transporte terrestre de carga nacional y cross-border con flota dedicada, control operativo y cumplimiento normativo.",
 };
