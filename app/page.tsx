@@ -514,7 +514,7 @@ export default function Home() {
                   <span className="font-semibold text-white">WhatsApp:</span> +52 (81) 0000 0000
                 </p>
                 <p>
-                  <span className="font-semibold text-white">Correo:</span> operaciones@waytogo.com
+                  <span className="font-semibold text-white">Correo:</span> operaciones@waytogoprueba.com
                 </p>
                 <p>
                   <span className="font-semibold text-white">Ubicación:</span> Monterrey, Nuevo León, México
