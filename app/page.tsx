@@ -55,33 +55,23 @@ export default function Home() {
   const fleetUnits = [
     {
       type: "Nissan / Unidad ligera",
-      capacity: "Hasta 2 toneladas",
-      use: "Entregas locales, carga ligera y movimientos ágiles",
-      detail: "Para operaciones urbanas y acceso a zonas congestionadas con disponibilidad rápida.",
+      description: "Para entregas locales, carga ligera y movimientos ágiles.",
     },
     {
       type: "3.5 toneladas",
-      capacity: "Hasta 3.5 toneladas",
-      use: "Carga comercial, entregas regionales y operaciones con acceso limitado",
-      detail: "Ideal para distribución con acceso a centros comerciales y entregas de precisión.",
+      description: "Ideal para carga comercial, entregas regionales y operaciones con acceso limitado.",
     },
     {
       type: "Rabón",
-      capacity: "Hasta 10 toneladas",
-      use: "Carga media, distribución y movimientos regionales",
-      detail: "Versátil para operaciones de mediano volumen con buena capacidad de maniobra.",
+      description: "Para carga media, distribución y movimientos regionales.",
     },
     {
       type: "Tortón",
-      capacity: "Hasta 15 toneladas",
-      use: "Carga palletizada, industrial o comercial",
-      detail: "Mayor capacidad para volumen consolidado y entregas regionales con contenedores.",
+      description: "Mayor capacidad para carga palletizada, industrial o comercial.",
     },
     {
       type: "Caja seca 53'",
-      capacity: "Hasta 26 toneladas",
-      use: "Volumen alto, carga general, mercancía seca y recorridos nacionales",
-      detail: "Máxima capacidad para operaciones FTL nacionales e internacionales con seguimiento 24/7.",
+      description: "Para volumen alto, carga general, mercancía seca y recorridos nacionales.",
     },
   ];
 
@@ -175,14 +165,19 @@ export default function Home() {
                 : "lg:grid-cols-[0.9fr_1.1fr] lg:py-20"
             }`}
           >
-            <div className="animate-fade-up space-y-7">
-              <h1
-                className={`leading-[0.95] font-bold text-[var(--navy-900)] transition-all duration-500 ${
-                  isTop ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl"
-                }`}
-              >
-                Transporte de carga con respuesta rápida, seguimiento 24/7 y cobertura nacional e internacional.
-              </h1>
+            <div className="animate-fade-up space-y-6">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--yellow-400)] mb-3">
+                  OPERACIÓN DE CARGA POR CARRETERA
+                </p>
+                <h1
+                  className={`leading-[0.95] font-bold text-[var(--navy-900)] transition-all duration-500 ${
+                    isTop ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl"
+                  }`}
+                >
+                  Transporte de carga con respuesta rápida, seguimiento 24/7 y cobertura nacional e internacional.
+                </h1>
+              </div>
               <p
                 className={`max-w-xl text-slate-700 transition-all duration-500 ${
                   isTop ? "text-lg" : "text-base"
@@ -204,6 +199,9 @@ export default function Home() {
                   💬 WhatsApp
                 </a>
               </div>
+              <p className="pt-2 text-sm font-semibold text-slate-600">
+                Respuesta ágil, seguimiento operativo y atención directa durante todo el servicio.
+              </p>
             </div>
             <div
               className={`animate-reveal-right delay-100 relative w-full overflow-hidden rounded-sm border border-slate-200 bg-slate-200 shadow-xl transition-all duration-500 ${
@@ -238,53 +236,17 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
-            <article className="overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm">
-              <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/9]">
-                <Image
-                  src="/images/horizontal-2.jpeg"
-                  alt="Operación de transporte de carga general"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-              <div className="space-y-3 p-6">
-                <h3 className="text-2xl font-bold text-[var(--navy-900)]">{solutions[0].name}</h3>
-                <p className="text-base leading-relaxed text-slate-700">{solutions[0].description}</p>
-                <a href="#cotizacion" className="inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]">Cotizar →</a>
-              </div>
-            </article>
-
-            <article className="overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm">
-              <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/9]">
-                <Image
-                  src="/images/horizontal-3.jpeg"
-                  alt="Operación de transporte Hazmat"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-              <div className="space-y-3 p-6">
-                <h3 className="text-2xl font-bold text-[var(--navy-900)]">{solutions[2].name}</h3>
-                <p className="text-base leading-relaxed text-slate-700">{solutions[2].description}</p>
-                <a href="#cotizacion" className="inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]">Cotizar →</a>
-              </div>
-            </article>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {solutions
-              .filter((_, index) => index !== 0 && index !== 2)
-              .map((solution) => (
-                <article
-                  key={solution.id}
-                  className="flex h-full flex-col rounded-sm border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md hover:border-[var(--yellow-400)]/30"
-                >
-                  <h3 className="text-base font-semibold text-[var(--navy-900)]">{solution.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-700">{solution.description}</p>
-                  <a href="#cotizacion" className="mt-auto inline-flex pt-4 text-xs font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]">Cotizar →</a>
-                </article>
-              ))}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {solutions.map((solution) => (
+              <article
+                key={solution.id}
+                className="flex h-full flex-col rounded-sm border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md hover:border-[var(--yellow-400)]/30"
+              >
+                <h3 className="text-lg font-bold text-[var(--navy-900)]">{solution.name}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-slate-700 flex-grow">{solution.description}</p>
+                <a href="#cotizacion" className="mt-5 inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]">Cotizar esta opción →</a>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -316,31 +278,29 @@ export default function Home() {
             {fleetUnits.map((unit) => (
               <article
                 key={unit.type}
-                className="rounded-sm border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition"
+                className="rounded-sm border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition flex flex-col"
               >
-                <div className="space-y-3">
-                  <div>
-                    <h3 className="text-xl font-bold text-[var(--navy-900)]">{unit.type}</h3>
-                    <p className="mt-1 text-sm font-semibold text-[var(--yellow-400)]">{unit.capacity}</p>
-                  </div>
-                  <p className="text-slate-700">
-                    <span className="font-semibold text-[var(--navy-900)]">Para:</span> {unit.use}
+                <h3 className="text-lg font-bold text-[var(--navy-900)]">{unit.type}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-slate-700 flex-grow">{unit.description}</p>
+                <div className="border-t border-slate-200 mt-5 pt-4">
+                  <p className="text-xs text-slate-500 italic mb-3">
+                    Disponibilidad sujeta a operación, tipo de carga y ruta.
                   </p>
-                  <p className="text-sm text-slate-600">{unit.detail}</p>
-                  <div className="border-t border-slate-200 pt-3">
-                    <p className="text-xs text-slate-500 italic">
-                      Disponibilidad sujeta a operación, tipo de carga y ruta.
-                    </p>
-                  </div>
                   <a
                     href="#cotizacion"
-                    className="mt-2 inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]"
+                    className="inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]"
                   >
-                    Cotizar unidad →
+                    Cotizar esta unidad →
                   </a>
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="rounded-sm border border-slate-100 bg-slate-50 p-5 mt-8">
+            <p className="text-sm text-slate-700">
+              <span className="font-semibold text-[var(--navy-900)]">Coordinación adicional:</span> Podemos coordinar unidades para carga general, refrigerada, Hazmat, aeropuertos y operaciones especiales, según validación operativa.
+            </p>
           </div>
         </section>
 
