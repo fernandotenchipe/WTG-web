@@ -38,7 +38,7 @@ export default function Home() {
     {
       id: "impoexpo",
       name: "Impo / Expo",
-      description: "Coordinación de carga para operaciones de importación y exportación.",
+      description: "Gestión logística de carga para importación y exportación, coordinando el cruce fronterizo por las aduanas de Eagle Pass, Pharr, Laredo y Colombia.",
     },
     {
       id: "aeropuertos",
@@ -289,7 +289,7 @@ export default function Home() {
           </div>
 
           <div className="mx-auto mt-8 max-w-[900px] text-center">
-            <p className="text-sm font-semibold text-slate-900">Podemos coordinar unidades para carga general, refrigerada, caja seca, plataforma, Hazmat, aeropuertos y operaciones especiales, según validación operativa.</p>
+            <p className="text-sm font-semibold text-slate-900">Podemos coordinar unidades para carga general,Hazmat, refrigerada, aeropuertos en plataformas, caja seca  y operaciones especiales, según validación operativa.</p>
             <div className="mt-6">
               <a href="#cotizacion" className="inline-flex items-center rounded-sm bg-[var(--yellow-400)] px-6 py-3 text-sm font-semibold text-[var(--navy-900)] transition hover:brightness-95">Cotizar mi carga</a>
             </div>
