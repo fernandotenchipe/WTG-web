@@ -82,7 +82,7 @@ export default function Home() {
         <div className="border-b border-slate-200/50 bg-slate-50 px-6 py-2.5 text-xs font-semibold text-slate-600 lg:px-10">
           <div className="mx-auto flex w-full max-w-[1440px] items-center justify-end gap-6">
             <a href="#" className="transition hover:text-[var(--navy-900)]">Únete al equipo</a>
-            <a href="#" className="transition hover:text-[var(--navy-900)]">Soy OperadorWTG</a>
+            <a href="#" className="transition hover:text-[var(--navy-900)]">Operadores</a>
             <a href="https://wa.me/+5281" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--yellow-400)] transition hover:text-[var(--navy-900)]">Urgencias / WhatsApp</a>
           </div>
         </div>
