@@ -55,23 +55,38 @@ export default function Home() {
   const fleetUnits = [
     {
       type: "Nissan / Unidad ligera",
-      description: "Para entregas locales, carga ligera y movimientos ágiles.",
+      image: "/images/nissan.png",
+      alt: "Nissan de carga ligera para operación urbana y local",
+      description:
+        "Unidad de menor capacidad para operaciones que requieren agilidad, accesos reducidos o menor volumen de carga.",
     },
     {
       type: "3.5 toneladas",
-      description: "Ideal para carga comercial, entregas regionales y operaciones con acceso limitado.",
+      image: "/images/3.5.png",
+      alt: "Unidad de 3.5 toneladas para carga ligera y media",
+      description:
+        "Unidad versátil para operaciones de carga ligera o media, según volumen, peso y requerimiento del cliente.",
     },
     {
       type: "Rabón",
-      description: "Para carga media, distribución y movimientos regionales.",
+      image: "/images/rabon.png",
+      alt: "Unidad Rabón para operaciones de capacidad intermedia",
+      description:
+        "Unidad de capacidad intermedia para operaciones que requieren mayor espacio sin utilizar una unidad completa de mayor dimensión.",
     },
     {
       type: "Tortón",
-      description: "Mayor capacidad para carga palletizada, industrial o comercial.",
+      image: "/images/torton.png",
+      alt: "Unidad Torton para operaciones de mayor volumen y peso",
+      description:
+        "Unidad de mayor capacidad para operaciones que requieren más volumen, peso o espacio operativo.",
     },
     {
-      type: "Caja seca 53'",
-      description: "Para volumen alto, carga general, mercancía seca y recorridos nacionales.",
+      type: "Caja seca 53’",
+      image: "/images/53.png",
+      alt: "Caja seca de 53 pies para operación de alta capacidad",
+      description:
+        "Unidad de alta capacidad para operaciones que requieren mayor espacio de carga.",
     },
   ];
 
@@ -223,84 +238,61 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="servicios" className="mx-auto w-full max-w-[1440px] space-y-10 px-6 py-16 scroll-mt-24 lg:px-10">
-          <div className="max-w-2xl space-y-3">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[var(--yellow-400)]">
-              Soluciones
-            </p>
-            <h2 className="text-4xl leading-[0.95] font-bold text-[var(--navy-900)] sm:text-5xl">
-              Soluciones listas para su operación.
-            </h2>
-            <p className="text-lg text-slate-700">
-              En WAYTOGO conectamos tu carga con la unidad correcta según ruta, tipo de mercancía y urgencia. Trabajamos servicios de carga general, refrigerada, Hazmat, dedicado e importación/exportación con seguimiento operativo desde la recolección hasta la entrega.
-            </p>
-          </div>
+        <section id="servicios" className="section-navy scroll-mt-24">
+          <div className="mx-auto w-full max-w-[1440px] space-y-10 px-6 py-16 lg:px-10">
+            <div className="max-w-2xl space-y-3">
+              <p className="text-sm font-semibold uppercase tracking-wider text-[var(--yellow-400)]">
+                Soluciones
+              </p>
+              <h2 className="text-4xl leading-[0.95] font-bold text-white sm:text-5xl">
+                Soluciones listas para su operación.
+              </h2>
+              <p className="text-lg text-slate-200">
+                En WAYTOGO conectamos tu carga con la unidad correcta según ruta, tipo de mercancía y urgencia. Trabajamos servicios de carga general, refrigerada, Hazmat, dedicado e importación/exportación con seguimiento operativo desde la recolección hasta la entrega.
+              </p>
+            </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {solutions.map((solution) => (
-              <article
-                key={solution.id}
-                className="flex h-full flex-col rounded-sm border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md hover:border-[var(--yellow-400)]/30"
-              >
-                <h3 className="text-lg font-bold text-[var(--navy-900)]">{solution.name}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-slate-700 flex-grow">{solution.description}</p>
-                <a href="#cotizacion" className="mt-5 inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]">Cotizar esta opción →</a>
-              </article>
-            ))}
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {solutions.map((solution) => (
+                <article
+                  key={solution.id}
+                  className="flex h-full flex-col rounded-sm border border-white/15 bg-white p-6 shadow-sm transition hover:shadow-md hover:border-[var(--yellow-400)]/30"
+                >
+                  <h3 className="text-lg font-bold text-[var(--navy-900)]">{solution.name}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-700 flex-grow">{solution.description}</p>
+                  {/* <a href="#cotizacion" className="mt-5 inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]">Cotizar esta opción →</a> */}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="flota" className="mx-auto w-full max-w-[1440px] space-y-10 px-6 py-16 scroll-mt-24 lg:px-10">
-          <div className="relative overflow-hidden rounded-sm border border-slate-200 h-[280px] md:h-[380px]">
-            <Image
-              src="/images/horizontal-4.jpeg"
-              alt="Flota de unidades WAYTOGO en operación"
-              fill
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[rgba(11,31,59,0.75)] to-transparent" />
-            <div className="absolute inset-0 flex items-center px-6 py-8 lg:px-12">
-              <div className="max-w-2xl space-y-4">
-                <p className="text-sm font-semibold uppercase tracking-wider text-[var(--yellow-400)]">
-                  Flota
-                </p>
-                <h2 className="text-4xl leading-[0.95] font-bold text-white sm:text-5xl">
-                  La unidad correcta para cada tipo de carga.
-                </h2>
-                <p className="text-lg text-slate-100">
-                  Validamos ruta, disponibilidad y tipo de unidad para que tu carga viaje con la capacidad adecuada desde la recolección hasta la entrega.
-                </p>
-              </div>
-            </div>
+        <section id="flota" className="mx-auto w-full px-6 py-16 scroll-mt-24 lg:px-10">
+          <div className="mx-auto max-w-4xl space-y-3 text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-[var(--yellow-400)]">Flota</p>
+            <h2 className="text-4xl leading-[0.95] font-bold text-[var(--navy-900)] sm:text-5xl">La unidad correcta para cada tipo de carga</h2>
+            <p className="text-lg text-slate-700">Validamos ruta, disponibilidad y tipo de unidad para que tu carga viaje con la capacidad adecuada desde la recolección hasta la entrega.</p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-8 grid w-full max-w-[1100px] grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
             {fleetUnits.map((unit) => (
-              <article
-                key={unit.type}
-                className="rounded-sm border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition flex flex-col"
-              >
-                <h3 className="text-lg font-bold text-[var(--navy-900)]">{unit.type}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-slate-700 flex-grow">{unit.description}</p>
-                <div className="border-t border-slate-200 mt-5 pt-4">
-                  <p className="text-xs text-slate-500 italic mb-3">
-                    Disponibilidad sujeta a operación, tipo de carga y ruta.
-                  </p>
-                  <a
-                    href="#cotizacion"
-                    className="inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]"
-                  >
-                    Cotizar esta unidad →
-                  </a>
+              <div key={unit.type} className="flex flex-col items-center gap-3 bg-white p-4 text-center">
+                <div className="w-full max-w-[220px]">
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image src={unit.image} alt={unit.alt} fill className="object-contain p-3 mix-blend-multiply" />
+                  </div>
                 </div>
-              </article>
+                <h3 className="text-sm font-bold text-[var(--navy-900)]">{unit.type}</h3>
+                <p className="text-sm text-slate-700">{unit.description}</p>
+              </div>
             ))}
           </div>
 
-          <div className="rounded-sm border border-slate-100 bg-slate-50 p-5 mt-8">
-            <p className="text-sm text-slate-700">
-              <span className="font-semibold text-[var(--navy-900)]">Coordinación adicional:</span> Podemos coordinar unidades para carga general, refrigerada, Hazmat, aeropuertos y operaciones especiales, según validación operativa.
-            </p>
+          <div className="mx-auto mt-8 max-w-[900px] text-center">
+            <p className="text-sm font-semibold text-slate-900">Podemos coordinar unidades para carga general, refrigerada, caja seca, plataforma, Hazmat, aeropuertos y operaciones especiales, según validación operativa.</p>
+            <div className="mt-6">
+              <a href="#cotizacion" className="inline-flex items-center rounded-sm bg-[var(--yellow-400)] px-6 py-3 text-sm font-semibold text-[var(--navy-900)] transition hover:brightness-95">Cotizar mi carga</a>
+            </div>
           </div>
         </section>
 
