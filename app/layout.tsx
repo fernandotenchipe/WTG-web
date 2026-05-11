@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "WTG | Way To Go | Transporte de Carga por Carretera",
   description:
     "Operador logistico especializado en transporte terrestre de carga nacional y cross-border con flota dedicada, control operativo y cumplimiento normativo.",
+  icons: {
+    icon: "/images/WTGO.png",
+  },
 };
 
 export default function RootLayout({
