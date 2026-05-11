@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Operador logistico especializado en transporte terrestre de carga nacional y cross-border con flota dedicada, control operativo y cumplimiento normativo.",
   icons: {
-    icon: "/images/WTGO.png",
+    icon: "/icon.png",
   },
 };
 
