@@ -113,24 +113,17 @@ export default function Home() {
             isTop ? "py-5" : "py-4"
           }`}
         >
-          <div className="flex items-center gap-3">
-            <span
-              className={`inline-flex items-center justify-center rounded-sm bg-[var(--navy-900)] font-bold text-white transition-all duration-500 ${
-                isTop ? "h-11 w-11 text-xl" : "h-10 w-10 text-lg"
+          <div className="flex min-w-0 items-center">
+            <Image
+              src="/images/negro%20camiones.png"
+              alt="WTG | Way To Go"
+              width={520}
+              height={160}
+              priority
+              className={`h-auto w-[220px] object-contain transition-all duration-500 sm:w-[280px] lg:w-[340px] ${
+                isTop ? "max-h-14 sm:max-h-16 lg:max-h-20" : "max-h-12 sm:max-h-14 lg:max-h-16"
               }`}
-            >
-              WTG
-            </span>
-            <div>
-              <p
-                className={`font-semibold tracking-wide transition-all duration-500 ${
-                  isTop ? "text-[17px]" : "text-base"
-                }`}
-              >
-                WTG | Way To Go
-              </p>
-              <p className="text-xs text-slate-600">Transporte terrestre de carga</p>
-            </div>
+            />
           </div>
           <nav className="hidden items-center gap-6 md:flex">
             <a href="#inicio" className="text-sm font-semibold text-slate-700 transition hover:text-[var(--navy-900)]">
