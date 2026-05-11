@@ -55,6 +55,7 @@ export default function Home() {
   const fleetUnits = [
     {
       type: "Nissan / Unidad ligera",
+      capacity: "Capacidad: 3,000 lb",
       image: "/images/nissan.png",
       alt: "Nissan de carga ligera para operación urbana y local",
       description:
@@ -62,6 +63,7 @@ export default function Home() {
     },
     {
       type: "3.5 toneladas",
+      capacity: "Capacidad: 2.8 tons",
       image: "/images/3.5.png",
       alt: "Unidad de 3.5 toneladas para carga ligera y media",
       description:
@@ -69,6 +71,7 @@ export default function Home() {
     },
     {
       type: "Rabón",
+      capacity: "Capacidad: 8 tons",
       image: "/images/rabon.png",
       alt: "Unidad Rabón para operaciones de capacidad intermedia",
       description:
@@ -76,6 +79,7 @@ export default function Home() {
     },
     {
       type: "Tortón",
+      capacity: "Capacidad: 14 tons",
       image: "/images/torton.png",
       alt: "Unidad Torton para operaciones de mayor volumen y peso",
       description:
@@ -83,6 +87,7 @@ export default function Home() {
     },
     {
       type: "Caja seca 53’",
+      capacity: "Capacidad: 42,000 lb",
       image: "/images/53.png",
       alt: "Caja seca de 53 pies para operación de alta capacidad",
       description:
@@ -283,6 +288,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h3 className="text-sm font-bold text-[var(--navy-900)]">{unit.type}</h3>
+                <p className="text-xs font-semibold uppercase tracking-wide text-[var(--yellow-400)]">{unit.capacity}</p>
                 <p className="text-sm text-slate-700">{unit.description}</p>
               </div>
             ))}
