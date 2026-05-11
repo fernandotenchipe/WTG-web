@@ -101,8 +101,8 @@ export default function Home() {
         {/* Top Bar */}
         <div className="border-b border-slate-200/50 bg-slate-50 px-6 py-2.5 text-xs font-semibold text-slate-600 lg:px-10">
           <div className="mx-auto flex w-full max-w-[1440px] items-center justify-end gap-6">
-            <a href="#" className="transition hover:text-[var(--navy-900)]">Únete al equipo</a>
-            <a href="#" className="transition hover:text-[var(--navy-900)]">Operadores</a>
+            <a href="/proveedores" className="transition hover:text-[var(--navy-900)]">Únete al equipo</a>
+            <a href="/operadores" className="transition hover:text-[var(--navy-900)]">Operadores</a>
             <a href="https://wa.me/+5281" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--yellow-400)] transition hover:text-[var(--navy-900)]">Urgencias / WhatsApp</a>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function Home() {
               💬 WhatsApp
             </a>
             <a
-              href="#cotizacion"
+              href="/cotizacion"
               className={`rounded-sm bg-[var(--yellow-400)] font-semibold text-[var(--navy-900)] transition-all duration-500 hover:brightness-95 ${
                 isTop ? "px-5 py-2.5 text-sm" : "px-4 py-2 text-sm"
               }`}
@@ -199,7 +199,7 @@ export default function Home() {
               </p>
               <div className="flex gap-3">
                 <a
-                  href="#cotizacion"
+                  href="/cotizacion"
                   className="inline-flex items-center rounded-sm bg-[var(--navy-900)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--navy-800)]"
                 >
                   Cotizar mi carga
@@ -258,7 +258,7 @@ export default function Home() {
                 >
                   <h3 className="text-lg font-bold text-[var(--navy-900)]">{solution.name}</h3>
                   <p className="mt-4 text-sm leading-relaxed text-slate-700 flex-grow">{solution.description}</p>
-                  {/* <a href="#cotizacion" className="mt-5 inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]">Cotizar esta opción →</a> */}
+                  {/* <a href="/cotizacion" className="mt-5 inline-flex text-sm font-semibold text-[var(--navy-900)] transition hover:text-[var(--yellow-400)]">Cotizar esta opción →</a> */}
                 </article>
               ))}
             </div>
@@ -290,7 +290,7 @@ export default function Home() {
           <div className="mx-auto mt-8 max-w-[900px] text-center">
             <p className="text-sm font-semibold text-slate-900">Podemos coordinar unidades para carga general,Hazmat, refrigerada, aeropuertos en plataformas, caja seca  y operaciones especiales, según validación operativa.</p>
             <div className="mt-6">
-              <a href="#cotizacion" className="inline-flex items-center rounded-sm bg-[var(--yellow-400)] px-6 py-3 text-sm font-semibold text-[var(--navy-900)] transition hover:brightness-95">Cotizar mi carga</a>
+              <a href="/cotizacion" className="inline-flex items-center rounded-sm bg-[var(--yellow-400)] px-6 py-3 text-sm font-semibold text-[var(--navy-900)] transition hover:brightness-95">Cotizar mi carga</a>
             </div>
           </div>
         </section>
@@ -322,7 +322,7 @@ export default function Home() {
                 </li>
               </ul>
               <a
-                href="#cotizacion"
+                href="/cotizacion"
                 className="inline-flex items-center rounded-sm border border-[var(--yellow-400)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--yellow-400)] transition hover:bg-[var(--yellow-400)] hover:text-[var(--navy-900)]"
               >
                 Consultar tu ruta
@@ -476,99 +476,22 @@ export default function Home() {
               </div>
             </div>
 
-            <div id="cotizacion" className="rounded-sm border border-white/20 bg-white p-6 shadow-lg md:p-8">
-              <h3 className="text-3xl font-bold text-[var(--navy-900)]">Solicitar cotización</h3>
-              <p className="mt-2 text-slate-600">
-                Completa los datos y un coordinador de tráfico te contactará.
+            <div className="space-y-4 rounded-sm border border-white/20 bg-white/10 p-6 shadow-lg md:p-8">
+              <h3 className="text-3xl font-bold text-white">Accesos rápidos</h3>
+              <p className="text-slate-200">
+                Selecciona el flujo que necesitas y te llevamos directo a la pantalla correcta.
               </p>
-              <form className="mt-6 grid gap-4 md:grid-cols-2">
-                <label className="space-y-1 md:col-span-1">
-                  <span className="text-sm font-semibold text-slate-700">Nombre</span>
-                  <input
-                    type="text"
-                    name="nombre"
-                    className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                    placeholder="Nombre completo"
-                  />
-                </label>
-                <label className="space-y-1 md:col-span-1">
-                  <span className="text-sm font-semibold text-slate-700">Empresa</span>
-                  <input
-                    type="text"
-                    name="empresa"
-                    className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                    placeholder="Nombre de la empresa"
-                  />
-                </label>
-                <label className="space-y-1 md:col-span-1">
-                  <span className="text-sm font-semibold text-slate-700">Teléfono</span>
-                  <input
-                    type="tel"
-                    name="telefono"
-                    className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                    placeholder="Teléfono de contacto"
-                  />
-                </label>
-                <label className="space-y-1 md:col-span-1">
-                  <span className="text-sm font-semibold text-slate-700">Correo</span>
-                  <input
-                    type="email"
-                    name="correo"
-                    className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                    placeholder="correo@empresa.com"
-                  />
-                </label>
-                <label className="space-y-1 md:col-span-2">
-                  <span className="text-sm font-semibold text-slate-700">Tipo de carga</span>
-                  <select
-                    name="tipoCarga"
-                    className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                  >
-                    <option>Selecciona un tipo...</option>
-                    <option>Carga general</option>
-                    <option>Refrigerada</option>
-                    <option>Hazmat</option>
-                    <option>Importación / Exportación</option>
-                    <option>Carga aérea / Aeropuertos</option>
-                    <option>Servicio dedicado</option>
-                  </select>
-                </label>
-                <label className="space-y-1 md:col-span-1">
-                  <span className="text-sm font-semibold text-slate-700">Origen</span>
-                  <input
-                    type="text"
-                    name="origen"
-                    className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                    placeholder="Ciudad o planta"
-                  />
-                </label>
-                <label className="space-y-1 md:col-span-1">
-                  <span className="text-sm font-semibold text-slate-700">Destino</span>
-                  <input
-                    type="text"
-                    name="destino"
-                    className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                    placeholder="Ciudad o centro"
-                  />
-                </label>
-                <label className="space-y-1 md:col-span-2">
-                  <span className="text-sm font-semibold text-slate-700">Mensaje</span>
-                  <textarea
-                    name="mensaje"
-                    rows={4}
-                    className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                    placeholder="Frecuencia, volumen, requisitos de cita o comentarios adicionales"
-                  />
-                </label>
-                <div className="md:col-span-2">
-                  <button
-                    type="submit"
-                    className="w-full rounded-sm bg-[var(--navy-900)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--navy-800)]"
-                  >
-                    Solicitar cotización
-                  </button>
-                </div>
-              </form>
+              <div className="grid gap-3">
+                <a href="/cotizacion" className="rounded-sm border border-[var(--yellow-400)] bg-[var(--yellow-400)] px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:brightness-95">
+                  Cotización rápida
+                </a>
+                <a href="/proveedores" className="rounded-sm border border-white/30 bg-white px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:bg-slate-100">
+                  Únete como proveedor
+                </a>
+                <a href="/operadores" className="rounded-sm border border-white/30 bg-white px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:bg-slate-100">
+                  Registro de operadores
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -591,7 +514,7 @@ export default function Home() {
                   Contacta con nuestro equipo hoy y descubre cómo WAYTOGO puede mejorar tu continuidad de suministro.
                 </p>
                 <a
-                  href="#cotizacion"
+                  href="/cotizacion"
                   className="inline-flex items-center rounded-sm bg-[var(--yellow-400)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:brightness-95"
                 >
                   Solicitar cotización ahora
