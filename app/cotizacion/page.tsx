@@ -186,9 +186,6 @@ export default function CotizacionPage() {
             <p className="text-sm text-slate-700">
               Distancia: <span className="font-semibold">{distanceKm} km</span>
             </p>
-            <p className="text-sm text-slate-700">
-              Tarifa: <span className="font-semibold">${selectedUnit.ratePerKm} MXN/km</span>
-            </p>
             <div className="border-t border-slate-200 pt-4">
               <p className="text-sm uppercase tracking-wider text-slate-500">Total estimado</p>
               <p className="text-4xl font-bold text-[var(--navy-900)]">
