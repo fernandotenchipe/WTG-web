@@ -84,7 +84,7 @@ export default function CotizacionPage() {
             Estima tu costo por km en menos de 1 minuto.
           </h1>
           <p className="max-w-3xl text-base text-slate-700">
-            Selecciona tipo de unidad, tipo de carga y distancia. El total se calcula con una tarifa base por kilómetro para darte un estimado inicial.
+            Selecciona tipo de unidad, tipo de carga y distancia.
           </p>
         </div>
       </section>
@@ -134,7 +134,6 @@ export default function CotizacionPage() {
                         <p className="text-base font-bold text-[var(--navy-900)]">{unit.name}</p>
                         <p className="text-sm text-slate-600">{unit.detail}</p>
                         <p className="text-sm font-semibold text-[var(--yellow-400)]">
-                          Tarifa base: ${unit.ratePerKm} MXN/km
                         </p>
                       </div>
                     </button>
