@@ -196,7 +196,7 @@ export default function CotizacionPage() {
               Estimado referencial. Puede variar por peajes, maniobras, tiempos de espera, ventana de carga y condiciones de operación.
             </p>
             <a
-              href="https://wa.me/+5281"
+              href="https://wa.me/+528130876945"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center rounded-sm bg-[var(--yellow-400)] px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:brightness-95"

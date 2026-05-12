@@ -150,7 +150,7 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/+5281"
+              href="https://wa.me/+528130876945"
               target="_blank" rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-sm border border-[var(--yellow-400)]/50 px-3 py-2 text-xs font-semibold text-[var(--navy-900)] transition hover:bg-[var(--yellow-400)]/10 md:inline-flex"
             >
@@ -205,7 +205,7 @@ export default function Home() {
                   Cotizar mi carga
                 </a>
                 <a
-                  href="https://wa.me/+5281"
+                  href="https://wa.me/+528130876945"
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-sm border border-[var(--navy-900)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:bg-slate-50"
                 >
@@ -459,13 +459,13 @@ export default function Home() {
               </p>
               <div className="space-y-3 rounded-sm border border-white/20 bg-white/5 p-5 text-slate-100">
                 <p>
-                  <span className="font-semibold text-white">Teléfono:</span> +52 (81) 0000 0000
+                  <span className="font-semibold text-white">Teléfono:</span> +52 (81) 3087 6945
                 </p>
                 <p>
-                  <span className="font-semibold text-white">WhatsApp:</span> +52 (81) 0000 0000
+                  <span className="font-semibold text-white">WhatsApp:</span> +52 (81) 3087 6945
                 </p>
                 <p>
-                  <span className="font-semibold text-white">Correo:</span> operaciones@waytogoprueba.com
+                  <span className="font-semibold text-white">Correo:</span> operaciones@waytogo.com.mx
                 </p>
                 <p>
                   <span className="font-semibold text-white">Ubicación:</span> Monterrey, Nuevo León, México
