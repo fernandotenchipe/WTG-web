@@ -115,7 +115,7 @@ export default function Home() {
         >
           <div className="flex min-w-0 items-center">
             <Image
-              src="/images/negro%20camiones.png"
+              src="/images/negro.png"
               alt="WTG | Way To Go"
               width={520}
               height={160}
