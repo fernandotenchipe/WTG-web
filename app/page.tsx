@@ -468,7 +468,7 @@ export default function Home() {
                   <span className="font-semibold text-white">Correo:</span> operaciones@waytogo.com.mx
                 </p>
                 <p>
-                  <span className="font-semibold text-white">Ubicación:</span> Gral. Escobedo, Nuevo León, México
+                  <span className="font-semibold text-white">Ubicación:</span> Cdad. Gral. Escobedo, Nuevo León, México
                 </p>
                 <p>
                   <span className="font-semibold text-white">Atención:</span> Lunes a Viernes 08:00 a 19:00 | Monitoreo 24/7 en ruta
