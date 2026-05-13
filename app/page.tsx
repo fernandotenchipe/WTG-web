@@ -528,8 +528,8 @@ export default function Home() {
           <div>
             <p className="font-semibold text-[var(--navy-900)]">WTG | Way To Go</p>
             <p className="mt-1">Transporte de carga por carretera nacional y cross-border.</p>
-            <p className="mt-1">Monterrey, Nuevo Leon | +52 (81) 0000 0000</p>
-            <p className="mt-1">operaciones@wtgfreight.com</p>
+            <p className="mt-1">Monterrey, Nuevo Leon | +52 (81) 3087 6945</p>
+            <p className="mt-1">ventas1@waytogo.com.mx</p>
           </div>
           <div>
             <p className="font-semibold text-[var(--navy-900)]">Navegacion</p>
