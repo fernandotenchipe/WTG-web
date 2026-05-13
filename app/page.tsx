@@ -117,8 +117,32 @@ export default function Home() {
             <a
               href="#"
               onClick={(e) => {
-                e.preventDefault(); // Evita que se agregue el "#" a la URL
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // Sube con un efecto suave
+                e.preventDefault(); // Evita el salto del '#'
+
+                const duration = 500; // Duración de la subida en milisegundos (aprox. medio segundo)
+                const startPosition = window.scrollY || document.documentElement.scrollTop;
+                const startTime = performance.now();
+
+                function animation(currentTime: number) {
+                  const timeElapsed = currentTime - startTime;
+                  const progress = Math.min(timeElapsed / duration, 1);
+
+                  // Alivio de transición (Ease In Out Quad): hace que empiece rápido y frene suave al llegar arriba
+                  const ease = progress < 0.5
+                    ? 2 * progress * progress
+                    : -1 + (4 - 2 * progress) * progress;
+
+                  // Intenta scrollear tanto en la ventana como en el elemento raíz por si el h-full está afectando
+                  window.scrollTo(0, startPosition * (1 - ease));
+                  document.documentElement.scrollTo(0, startPosition * (1 - ease));
+                  document.body.scrollTo(0, startPosition * (1 - ease));
+
+                  if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                  }
+                }
+
+                requestAnimationFrame(animation);
               }}
               className="cursor-pointer"
             >
