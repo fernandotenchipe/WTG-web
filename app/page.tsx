@@ -114,16 +114,24 @@ export default function Home() {
           }`}
         >
           <div className="flex min-w-0 items-center">
-            <Image
-              src="/images/negro.png"
-              alt="WTG | Way To Go"
-              width={520}
-              height={160}
-              priority
-              className={`h-auto w-[220px] object-contain transition-all duration-500 sm:w-[280px] lg:w-[340px] ${
-                isTop ? "max-h-14 sm:max-h-16 lg:max-h-20" : "max-h-12 sm:max-h-14 lg:max-h-16"
-              }`}
-            />
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault(); // Evita que se agregue el "#" a la URL
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Sube con un efecto suave
+              }}
+              className="cursor-pointer"
+            >
+              <Image
+                src="/images/negro.png"
+                alt="WTG | Way To Go"
+                width={520}
+                height={160}
+                priority
+                className={`h-auto w-[220px] object-contain transition-all duration-500 sm:w-[280px] lg:w-[340px] ${isTop ? "max-h-14 sm:max-h-16 lg:max-h-20" : "max-h-12 sm:max-h-14 lg:max-h-16"
+                  }`}
+              />
+            </a>
           </div>
           <nav className="hidden items-center gap-6 md:flex">
             <a href="#inicio" className="text-sm font-semibold text-slate-700 transition hover:text-[var(--navy-900)]">
