@@ -103,7 +103,7 @@ export default function Home() {
           <div className="mx-auto flex w-full max-w-[1440px] items-center justify-end gap-6">
             <a href="/proveedores" className="transition hover:text-[var(--navy-900)]">Únete al equipo</a>
             <a href="/operadores" className="transition hover:text-[var(--navy-900)]">Operadores</a>
-            <a href="https://wa.me/+5281" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--yellow-400)] transition hover:text-[var(--navy-900)]">Urgencias / WhatsApp</a>
+            <a href="https://wa.me/+5281" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 rounded-lg font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md active:scale-95"> Urgencias / WhatsApp </a>
           </div>
         </div>
 
@@ -459,16 +459,13 @@ export default function Home() {
               </p>
               <div className="space-y-3 rounded-sm border border-white/20 bg-white/5 p-5 text-slate-100">
                 <p>
-                  <span className="font-semibold text-white">Teléfono:</span> +52 (81) 3087 6945
+                  <span className="font-semibold text-white">Teléfonos/Whatsapp:</span> +52 (81) 3087 6945 | +52 (81) 3087 6945
                 </p>
                 <p>
-                  <span className="font-semibold text-white">WhatsApp:</span> +52 (81) 3087 6945
+                  <span className="font-semibold text-white">Correos:</span> ventas1@waytogo.com.mx | ventas2@waytogo.com.mx 
                 </p>
                 <p>
-                  <span className="font-semibold text-white">Correo:</span> operaciones@waytogo.com.mx
-                </p>
-                <p>
-                  <span className="font-semibold text-white">Ubicación:</span> Cdad. Gral. Escobedo, Nuevo León, México
+                  <span className="font-semibold text-white">Ubicación:</span> Salinas Victoria, Nuevo León, México
                 </p>
                 <p>
                   <span className="font-semibold text-white">Atención:</span> Lunes a Viernes 08:00 a 19:00 | Monitoreo 24/7 en ruta
