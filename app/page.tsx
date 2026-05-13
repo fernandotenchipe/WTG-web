@@ -468,7 +468,7 @@ export default function Home() {
                   <span className="font-semibold text-white">Ubicación:</span> Salinas Victoria, Nuevo León, México
                 </p>
                 <p>
-                  <span className="font-semibold text-white">Atención:</span> Lunes a Viernes 08:00 a 19:00 | Monitoreo 24/7 en ruta
+                  <span className="font-semibold text-white">Atención:</span> Lunes a Domingo 08:00 a 19:00 | Monitoreo 24/7 en ruta
                 </p>
               </div>
             </div>
