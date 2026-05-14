@@ -50,6 +50,11 @@ export default function Home() {
       name: "Servicio Dedicado",
       description: "Unidades asignadas para operaciones recurrentes, entregas críticas o movimientos que requieren mayor control y seguimiento.",
     },
+    {
+      id: "us",
+      name: "U.S: Domestic Freight Transportation",
+      description: "Transporte terrestre doméstico en Estados Unidos, con cobertura y coordinación operativa local.",
+    },
   ];
 
   const fleetUnits = [
@@ -282,7 +287,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {solutions.map((solution) => (
                 <article
                   key={solution.id}
