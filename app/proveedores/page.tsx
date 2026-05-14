@@ -1,6 +1,19 @@
 import Image from "next/image";
 
 export default function ProveedoresPage() {
+  const unitOptions = ["Nissan / Unidad ligera", "Camión 3.5", "Rabón", "Tortón", "Caja de 53’"];
+  const serviceOptions = [
+    "General",
+    "Thermo",
+    "Hazmat",
+    "Impo/Expo",
+    "Ingreso a Aeropuertos",
+    "Servicios Dedicados",
+    "U.S. Domestic Freight Transportation",
+    "Más",
+  ];
+  const coverageOptions = ["Nacional", "Internacional"];
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="section-surface border-b border-slate-200/80">
@@ -82,16 +95,6 @@ export default function ProveedoresPage() {
                 />
               </label>
               <label className="space-y-1">
-                <span className="text-sm font-semibold text-slate-700">Tipo de unidad principal</span>
-                <select className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]">
-                  <option>Nissan / Unidad ligera</option>
-                  <option>Camión 3.5</option>
-                  <option>Rabón</option>
-                  <option>Tortón</option>
-                  <option>Caja de 53’</option>
-                </select>
-              </label>
-              <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Ciudad base de operación</span>
                 <input
                   type="text"
@@ -99,14 +102,59 @@ export default function ProveedoresPage() {
                   placeholder="Monterrey, NL"
                 />
               </label>
-              <label className="space-y-1 md:col-span-2">
-                <span className="text-sm font-semibold text-slate-700">Cobertura disponible</span>
-                <textarea
-                  rows={4}
-                  className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                  placeholder="Rutas, estados o zonas que cubres"
-                />
-              </label>
+
+              <div className="md:col-span-2 grid gap-4 lg:grid-cols-3">
+                <fieldset className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                  <legend className="px-1 text-sm font-semibold text-slate-700">Tipo de unidad principal</legend>
+                  <div className="mt-3 space-y-2">
+                    {unitOptions.map((option) => (
+                      <label key={option} className="flex cursor-pointer items-center gap-3 text-sm text-slate-700">
+                        <input
+                          type="checkbox"
+                          name="unidades"
+                          value={option}
+                          className="h-4 w-4 rounded border-slate-300 text-[var(--navy-900)] focus:ring-[var(--navy-800)]"
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <fieldset className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                  <legend className="px-1 text-sm font-semibold text-slate-700">Servicios</legend>
+                  <div className="mt-3 space-y-2">
+                    {serviceOptions.map((option) => (
+                      <label key={option} className="flex cursor-pointer items-center gap-3 text-sm text-slate-700">
+                        <input
+                          type="checkbox"
+                          name="servicios"
+                          value={option}
+                          className="h-4 w-4 rounded border-slate-300 text-[var(--navy-900)] focus:ring-[var(--navy-800)]"
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <fieldset className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                  <legend className="px-1 text-sm font-semibold text-slate-700">Cobertura</legend>
+                  <div className="mt-3 space-y-2">
+                    {coverageOptions.map((option) => (
+                      <label key={option} className="flex cursor-pointer items-center gap-3 text-sm text-slate-700">
+                        <input
+                          type="checkbox"
+                          name="cobertura"
+                          value={option}
+                          className="h-4 w-4 rounded border-slate-300 text-[var(--navy-900)] focus:ring-[var(--navy-800)]"
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              </div>
               <div className="md:col-span-2">
                 <button
                   type="submit"
