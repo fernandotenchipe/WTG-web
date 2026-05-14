@@ -130,6 +130,38 @@ export default function OperadoresPage() {
                 </button>
               </div>
             </form>
+
+            <div className="mt-6 space-y-4">
+              <div>
+                <h4 className="text-sm font-semibold text-[var(--navy-900)] mb-2">Unidades que manejamos</h4>
+                <div className="flex flex-wrap gap-3">
+                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">Nissan — Unidad ligera</span>
+                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">3.5 toneladas</span>
+                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">Rabón</span>
+                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">Tortón</span>
+                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">Caja seca 53’</span>
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+                  <h5 className="font-semibold text-[var(--navy-900)] mb-2">Documentación requerida</h5>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Licencia federal vigente</li>
+                    <li>Apto médico vigente</li>
+                    <li>Tarjeta de circulación y póliza</li>
+                  </ul>
+                </div>
+                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+                  <h5 className="font-semibold text-[var(--navy-900)] mb-2">Proceso de validación</h5>
+                  <ol className="list-decimal pl-5 space-y-1">
+                    <li>Revisión documental inicial</li>
+                    <li>Contacto del equipo de reclutamiento</li>
+                    <li>Validación final y alta operativa</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
