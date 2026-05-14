@@ -53,7 +53,7 @@ export default function Home() {
     {
       id: "us",
       name: "U.S: Domestic Freight Transportation",
-      description: "Transporte terrestre doméstico en Estados Unidos, con cobertura y coordinación operativa local.",
+      description: "Coordinación de transporte doméstico en Estados Unidos mediante proveedores logísticos aliados, con seguimiento operativo desde Monterrey.",
     },
   ];
 
