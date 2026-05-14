@@ -88,6 +88,15 @@ export default function OperadoresPage() {
                 />
               </label>
               <label className="space-y-1">
+                <span className="text-sm font-semibold text-slate-700">Visa estadounidense</span>
+                <select className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]">
+                  <option>Selecciona una opción</option>
+                  <option>Sí</option>
+                  <option>No</option>
+                  <option>En proceso</option>
+                </select>
+              </label>
+              <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Tipo de licencia</span>
                 <input
                   type="text"
