@@ -483,18 +483,18 @@ export default function Home() {
         </section>
 
         <section id="contacto" className="section-navy scroll-mt-24">
-          <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-6 py-16 lg:grid-cols-[0.88fr_1.12fr] lg:px-10 lg:py-20">
-            <div className="space-y-5 text-white">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-6 py-12 lg:grid-cols-[0.88fr_1.12fr] lg:px-10 lg:py-16">
+            <div className="space-y-4 text-white">
               <p className="text-sm font-semibold uppercase tracking-wider text-[var(--yellow-400)]">
                 Contacto y cotización
               </p>
-              <h2 className="max-w-2xl text-4xl leading-[0.95] font-bold sm:text-5xl">
+              <h2 className="max-w-2xl text-3xl leading-[0.95] font-bold sm:text-4xl">
                 Coordinemos su próxima operación de transporte.
               </h2>
-              <p className="max-w-xl text-slate-200">
+              <p className="max-w-xl text-sm text-slate-200">
                 Comparta origen, destino y tipo de carga. El equipo operativo responderá con capacidad disponible, tiempos de tránsito y esquema de servicio.
               </p>
-              <div className="space-y-3 rounded-sm border border-white/20 bg-white/5 p-5 text-slate-100">
+              <div className="space-y-2 rounded-sm border border-white/20 bg-white/5 p-4 text-sm text-slate-100">
                 <p>
                   <span className="font-semibold text-white">Teléfonos/Whatsapp:</span> +52 (81) 3087 6945 | +52 (81) 3087 6945
                 </p>
@@ -510,10 +510,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="space-y-4 rounded-sm border border-white/20 bg-white/10 p-6 shadow-lg md:p-8">
-              <h3 className="text-3xl font-bold text-white">Accesos rápidos</h3>
-              <p className="text-slate-200">
-                Selecciona el flujo que necesitas y te llevamos directo a la pantalla correcta.
+            <div className="space-y-3 rounded-sm border border-white/20 bg-white/10 p-5 shadow-lg md:p-6">
+              <h3 className="text-2xl font-bold text-white">Accesos rápidos</h3>
+              <p className="text-sm text-slate-200">
+                Elige cómo quieres contactarnos.
               </p>
               <div className="grid gap-3">
                 <a href="/cotizacion" className="rounded-sm border border-[var(--yellow-400)] bg-[var(--yellow-400)] px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:brightness-95">
