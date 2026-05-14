@@ -34,12 +34,18 @@ export default function OperadoresPage() {
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
           <aside className="space-y-4 rounded-sm border border-slate-200 bg-white p-5 shadow-sm">
             <h2 className="text-2xl font-bold text-[var(--navy-900)]">Perfil buscado</h2>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li>Licencia federal vigente (según tipo de unidad).</li>
-              <li>Experiencia en carretera y cumplimiento de ruta.</li>
-              <li>Conocimiento de protocolos de seguridad.</li>
-              <li>Comunicación activa con centro de control.</li>
-              <li>Disponibilidad para viajes locales o foráneos.</li>
+            <ul className="grid gap-2 text-sm text-slate-700 md:grid-cols-2 md:gap-x-4 md:gap-y-2">
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Licencia federal vigente acorde al tipo de unidad.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Apto médico vigente.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Buenas referencias laborales y disponibilidad para validación de antecedentes.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Experiencia comprobable en carretera y manejo de carga.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Conocimiento de protocolos de seguridad, documentación y bitácoras.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Comunicación constante con centro de control y despacho.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Manejo responsable, preventivo y orientado al cuidado de la unidad.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Disponibilidad para viajes locales, foráneos o cross-border.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Actitud profesional con clientes, patios, aduanas y puntos de entrega.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Conocimiento de zonas restringidas.</li>
+              <li className="rounded-sm bg-slate-50 px-3 py-2 leading-relaxed">Respuesta rápida ante adversidades en ruta.</li>
             </ul>
           </aside>
 
