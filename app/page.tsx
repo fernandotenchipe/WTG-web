@@ -577,6 +577,13 @@ export default function Home() {
               <p><a href="#contacto" className="transition hover:text-[var(--navy-900)]">Contacto</a></p>
             </div>
           </div>
+          {/* <div>
+            <p className="font-semibold text-[var(--navy-900)]">Aviso legal</p>
+            <p className="mt-2">Aviso de privacidad y tratamiento de datos para solicitudes comerciales.</p>
+            <a href="#" className="mt-1 inline-flex transition hover:text-[var(--navy-900)]">
+              Consultar aviso de privacidad
+            </a>
+          </div> */}
         </div>
       </footer>
     </div>
