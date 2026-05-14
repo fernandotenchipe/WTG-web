@@ -88,6 +88,22 @@ export default function OperadoresPage() {
                 />
               </label>
               <label className="space-y-1">
+                <span className="text-sm font-semibold text-slate-700">¿Qué tipo de unidad manejas?</span>
+                <input
+                  type="text"
+                  className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
+                  placeholder="Ej. Tortón, Rabón, 3.5 toneladas"
+                />
+              </label>
+              <label className="space-y-1">
+                <span className="text-sm font-semibold text-slate-700">¿Qué transmisión manejas?</span>
+                <input
+                  type="text"
+                  className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
+                  placeholder="Ej. Manual, automática, semiautomática"
+                />
+              </label>
+              <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Visa estadounidense</span>
                 <select className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]">
                   <option>Selecciona una opción</option>
@@ -131,34 +147,53 @@ export default function OperadoresPage() {
               </div>
             </form>
 
-            <div className="mt-6 space-y-4">
-              <div>
-                <h4 className="text-sm font-semibold text-[var(--navy-900)] mb-2">Unidades que manejamos</h4>
-                <div className="flex flex-wrap gap-3">
-                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">Nissan — Unidad ligera</span>
-                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">3.5 toneladas</span>
-                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">Rabón</span>
-                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">Tortón</span>
-                  <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">Caja seca 53’</span>
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold text-[var(--navy-900)] mb-4">Unidades que manejamos</h4>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="flex items-center gap-3 rounded-sm border border-slate-200 bg-white p-3 shadow-sm">
+                  <div className="relative h-12 w-16 overflow-hidden rounded-sm bg-slate-100">
+                    <Image src="/images/nissan.png" alt="Nissan unidad ligera" fill className="object-contain" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--navy-900)]">Nissan</p>
+                    <p className="text-xs text-slate-600">Unidad ligera</p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-                  <h5 className="font-semibold text-[var(--navy-900)] mb-2">Documentación requerida</h5>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>Licencia federal vigente</li>
-                    <li>Apto médico vigente</li>
-                    <li>Tarjeta de circulación y póliza</li>
-                  </ul>
+                <div className="flex items-center gap-3 rounded-sm border border-slate-200 bg-white p-3 shadow-sm">
+                  <div className="relative h-12 w-16 overflow-hidden rounded-sm bg-slate-100">
+                    <Image src="/images/3.5.png" alt="Unidad 3.5 toneladas" fill className="object-contain" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--navy-900)]">3.5 toneladas</p>
+                    <p className="text-xs text-slate-600">Carga ligera y media</p>
+                  </div>
                 </div>
-                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-                  <h5 className="font-semibold text-[var(--navy-900)] mb-2">Proceso de validación</h5>
-                  <ol className="list-decimal pl-5 space-y-1">
-                    <li>Revisión documental inicial</li>
-                    <li>Contacto del equipo de reclutamiento</li>
-                    <li>Validación final y alta operativa</li>
-                  </ol>
+                <div className="flex items-center gap-3 rounded-sm border border-slate-200 bg-white p-3 shadow-sm">
+                  <div className="relative h-12 w-16 overflow-hidden rounded-sm bg-slate-100">
+                    <Image src="/images/rabon.png" alt="Unidad Rabón" fill className="object-contain" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--navy-900)]">Rabón</p>
+                    <p className="text-xs text-slate-600">Capacidad intermedia</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-sm border border-slate-200 bg-white p-3 shadow-sm">
+                  <div className="relative h-12 w-16 overflow-hidden rounded-sm bg-slate-100">
+                    <Image src="/images/torton.png" alt="Unidad Tortón" fill className="object-contain" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--navy-900)]">Tortón</p>
+                    <p className="text-xs text-slate-600">Alta capacidad</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-sm border border-slate-200 bg-white p-3 shadow-sm">
+                  <div className="relative h-12 w-16 overflow-hidden rounded-sm bg-slate-100">
+                    <Image src="/images/53.png" alt="Caja seca 53 pies" fill className="object-contain" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--navy-900)]">Caja seca 53’</p>
+                    <p className="text-xs text-slate-600">Carga de mayor volumen</p>
+                  </div>
                 </div>
               </div>
             </div>
