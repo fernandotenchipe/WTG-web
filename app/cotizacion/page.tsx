@@ -62,6 +62,7 @@ export default function CotizacionPage() {
   const [selectedUnitId, setSelectedUnitId] = useState(units[0].id);
   const [distanceKm, setDistanceKm] = useState(500);
   const [cargoType, setCargoType] = useState(cargoTypes[0]);
+  const [isDetailedModalOpen, setIsDetailedModalOpen] = useState(false);
 
   const selectedUnit = useMemo(
     () => units.find((unit) => unit.id === selectedUnitId) ?? units[0],
@@ -69,6 +70,15 @@ export default function CotizacionPage() {
   );
 
   const estimatedTotal = selectedUnit.ratePerKm * distanceKm;
+  const tollEstimate = Math.round(estimatedTotal * 0.08);
+  const handlingEstimate = cargoType === "Hazmat" ? 1800 : cargoType === "Refrigerada" ? 1200 : cargoType === "Importación / Exportación" ? 1500 : 900;
+  const waitingEstimate = Math.round(distanceKm * 1.5);
+  const detailedEstimate = estimatedTotal + tollEstimate + handlingEstimate + waitingEstimate;
+  const currencyFormatter = new Intl.NumberFormat("es-MX", {
+    style: "currency",
+    currency: "MXN",
+    maximumFractionDigits: 0,
+  });
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -202,9 +212,108 @@ export default function CotizacionPage() {
             >
               Solicitar cotización formal
             </a>
+            <button
+              type="button"
+              onClick={() => setIsDetailedModalOpen(true)}
+              className="inline-flex w-full items-center justify-center rounded-sm border border-[var(--navy-900)] px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:bg-slate-50"
+            >
+              Ver cotización detallada
+            </button>
           </aside>
         </div>
       </section>
+
+      {isDetailedModalOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(11,31,59,0.72)] px-4 py-6"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="detalle-cotizacion-title"
+          onClick={() => setIsDetailedModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-2xl overflow-hidden rounded-sm bg-white shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="border-b border-slate-200 bg-slate-50 px-6 py-4">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--yellow-400)]">
+                    Cotización detallada
+                  </p>
+                  <h2 id="detalle-cotizacion-title" className="mt-2 text-3xl font-bold text-[var(--navy-900)]">
+                    Desglose más específico
+                  </h2>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsDetailedModalOpen(false)}
+                  className="rounded-full border border-slate-300 px-3 py-1 text-sm font-semibold text-slate-600 transition hover:border-slate-400 hover:text-[var(--navy-900)]"
+                  aria-label="Cerrar modal"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+
+            <div className="grid gap-6 px-6 py-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="space-y-4">
+                <div className="rounded-sm border border-slate-200 bg-white p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Servicio</p>
+                  <h3 className="mt-2 text-2xl font-bold text-[var(--navy-900)]">{selectedUnit.name}</h3>
+                  <p className="mt-1 text-sm text-slate-700">Tipo de carga: <span className="font-semibold">{cargoType}</span></p>
+                  <p className="mt-1 text-sm text-slate-700">Distancia: <span className="font-semibold">{distanceKm} km</span></p>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Tarifa base</p>
+                    <p className="mt-2 text-2xl font-bold text-[var(--navy-900)]">{currencyFormatter.format(estimatedTotal)}</p>
+                  </div>
+                  <div className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Peajes estimados</p>
+                    <p className="mt-2 text-2xl font-bold text-[var(--navy-900)]">{currencyFormatter.format(tollEstimate)}</p>
+                  </div>
+                  <div className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Maniobras / manejo</p>
+                    <p className="mt-2 text-2xl font-bold text-[var(--navy-900)]">{currencyFormatter.format(handlingEstimate)}</p>
+                  </div>
+                  <div className="rounded-sm border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Espera / tiempos</p>
+                    <p className="mt-2 text-2xl font-bold text-[var(--navy-900)]">{currencyFormatter.format(waitingEstimate)}</p>
+                  </div>
+                </div>
+              </div>
+
+              <aside className="space-y-4 rounded-sm border border-[var(--navy-900)]/15 bg-[rgba(11,31,59,0.03)] p-5">
+                <p className="text-sm font-semibold uppercase tracking-wider text-[var(--yellow-400)]">
+                  Total detallado
+                </p>
+                <p className="text-4xl font-bold text-[var(--navy-900)]">
+                  {currencyFormatter.format(detailedEstimate)}
+                </p>
+                <p className="text-sm leading-relaxed text-slate-700">
+                  Este desglose agrega peajes, manejo y tiempos estimados para darte una referencia más precisa antes de formalizar la cotización.
+                </p>
+                <div className="space-y-2 rounded-sm border border-slate-200 bg-white p-4 text-sm text-slate-700">
+                  <p><span className="font-semibold text-[var(--navy-900)]">Unidad:</span> {selectedUnit.name}</p>
+                  <p><span className="font-semibold text-[var(--navy-900)]">Carga:</span> {cargoType}</p>
+                  <p><span className="font-semibold text-[var(--navy-900)]">Ruta:</span> {distanceKm} km</p>
+                  <p><span className="font-semibold text-[var(--navy-900)]">Detalle:</span> cálculo referencial sujeto a validación operativa</p>
+                </div>
+                <a
+                  href="https://wa.me/+528130876945"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-sm bg-[var(--yellow-400)] px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:brightness-95"
+                >
+                  Solicitar ajuste formal
+                </a>
+              </aside>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }
