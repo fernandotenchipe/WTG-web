@@ -7,6 +7,7 @@ import { sendToAppsScript, fileToBase64Payload } from "@/lib/sendToAppsScript";
 export default function OperadoresPage() {
 
   const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [pdfName, setPdfName] = useState<string>("");
 
 const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
@@ -48,6 +49,7 @@ const pdf = await fileToBase64Payload(pdfFile);
     });
 
     form.reset();
+    setPdfName("");
     setSubmitStatus("sent");
   } catch (error) {
     console.error(error);
@@ -216,13 +218,31 @@ const pdf = await fileToBase64Payload(pdfFile);
                 <span className="text-sm font-semibold text-slate-700">
                   CV en PDF
                 </span>
-                <input
-                  name="pdf"
-                  type="file"
-                  accept="application/pdf"
-                  required
-                  className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800"
-                />
+                <div className="mt-2 flex items-center gap-3">
+                  <label
+                    htmlFor="pdf-upload-operadores"
+                    className="flex w-full items-center justify-between rounded-sm border border-slate-300 px-3 py-2 text-slate-800 bg-white cursor-pointer"
+                  >
+                    <span className={`truncate text-sm ${pdfName ? 'text-slate-800' : 'text-slate-500'}`}>
+                      {pdfName || 'Examinar… Ningún archivo seleccionado.'}
+                    </span>
+                    <span className="ml-4 inline-flex items-center gap-2 rounded-sm bg-[var(--navy-900)] px-3 py-2 text-sm font-semibold text-white">
+                      Seleccionar
+                    </span>
+                  </label>
+                  <input
+                    id="pdf-upload-operadores"
+                    name="pdf"
+                    type="file"
+                    accept="application/pdf"
+                    required
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.currentTarget.files && e.currentTarget.files[0];
+                      setPdfName(file ? file.name : "");
+                    }}
+                  />
+                </div>
               </label>
               <div className="md:col-span-2">
                 <button
