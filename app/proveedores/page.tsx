@@ -1,6 +1,43 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { sendToAppsScript } from "@/lib/sendToAppsScript";
 
 export default function ProveedoresPage() {
+
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const formData = new FormData(form);
+
+  setSubmitStatus("sending");
+
+  try {
+    await sendToAppsScript({
+      formType: "proveedor",
+      nombreContacto: String(formData.get("nombreContacto") || ""),
+      empresa: String(formData.get("empresa") || ""),
+      correo: String(formData.get("correo") || ""),
+      telefono: String(formData.get("telefono") || ""),
+      ciudadBase: String(formData.get("ciudadBase") || ""),
+      unidades: formData.getAll("unidades").map(String),
+      servicios: formData.getAll("servicios").map(String),
+      cobertura: formData.getAll("cobertura").map(String),
+    });
+
+    form.reset();
+    setSubmitStatus("sent");
+  } catch (error) {
+    console.error(error);
+    setSubmitStatus("error");
+  }
+};
+
+
   const unitOptions = ["Nissan / Unidad ligera", "Camión 3.5", "Rabón", "Tortón", "Caja de 53’"];
   const serviceOptions = [
     "General",
@@ -61,10 +98,12 @@ export default function ProveedoresPage() {
             <p className="mt-2 text-slate-600">
               Completa tus datos y te contactaremos para validación documental y alta de proveedor.
             </p>
-            <form className="mt-6 grid gap-4 md:grid-cols-2">
+            <form onSubmit={handleSubmit} className="mt-6 grid gap-4 md:grid-cols-2">
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Nombre del contacto</span>
                 <input
+                  name="nombreContacto"
+                  required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Nombre completo"
@@ -73,6 +112,8 @@ export default function ProveedoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Empresa o razón social</span>
                 <input
+                  name="empresa"
+                  required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Nombre comercial"
@@ -81,6 +122,8 @@ export default function ProveedoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Correo</span>
                 <input
+                  name="correo"
+                  required
                   type="email"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="correo@empresa.com"
@@ -89,6 +132,8 @@ export default function ProveedoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Teléfono</span>
                 <input
+                  name="telefono"
+                  required
                   type="tel"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="+52"
@@ -97,6 +142,8 @@ export default function ProveedoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Ciudad base de operación</span>
                 <input
+                  name="ciudadBase"
+                  required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Monterrey, NL"
@@ -158,9 +205,10 @@ export default function ProveedoresPage() {
               <div className="md:col-span-2">
                 <button
                   type="submit"
-                  className="w-full rounded-sm bg-[var(--navy-900)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--navy-800)]"
+                  disabled={submitStatus === "sending"}
+                  className="w-full rounded-sm bg-[var(--navy-900)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--navy-800)] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Enviar solicitud
+                  {submitStatus === "sending" ? "Enviando..." : "Enviar solicitud"}
                 </button>
               </div>
             </form>

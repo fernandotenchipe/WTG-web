@@ -1,6 +1,44 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { sendToAppsScript } from "@/lib/sendToAppsScript";
 
 export default function OperadoresPage() {
+
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const formData = new FormData(form);
+
+  setSubmitStatus("sending");
+
+  try {
+    await sendToAppsScript({
+      formType: "operador",
+      nombreCompleto: String(formData.get("nombreCompleto") || ""),
+      telefono: String(formData.get("telefono") || ""),
+      correo: String(formData.get("correo") || ""),
+      ciudadResidencia: String(formData.get("ciudadResidencia") || ""),
+      tipoUnidad: String(formData.get("tipoUnidad") || ""),
+      transmision: String(formData.get("transmision") || ""),
+      visaEstadounidense: String(formData.get("visaEstadounidense") || ""),
+      tipoLicencia: String(formData.get("tipoLicencia") || ""),
+      aniosExperiencia: String(formData.get("aniosExperiencia") || ""),
+      rutasDominadas: String(formData.get("rutasDominadas") || ""),
+    });
+
+    form.reset();
+    setSubmitStatus("sent");
+  } catch (error) {
+    console.error(error);
+    setSubmitStatus("error");
+  }
+};
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="section-surface border-b border-slate-200/80">
@@ -54,10 +92,12 @@ export default function OperadoresPage() {
             <p className="mt-2 text-slate-600">
               Déjanos tus datos y nuestro equipo de reclutamiento te contactará para el proceso de validación.
             </p>
-            <form className="mt-6 grid gap-4 md:grid-cols-2">
+            <form onSubmit={handleSubmit} className="mt-6 grid gap-4 md:grid-cols-2">
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Nombre completo</span>
                 <input
+                  name="nombreCompleto"
+                  required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Nombre y apellidos"
@@ -66,6 +106,8 @@ export default function OperadoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Teléfono</span>
                 <input
+                  name="telefono"
+                  required
                   type="tel"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="+52"
@@ -74,6 +116,8 @@ export default function OperadoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Correo</span>
                 <input
+                  name="correo"
+                  required
                   type="email"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="correo@dominio.com"
@@ -82,6 +126,8 @@ export default function OperadoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Ciudad de residencia</span>
                 <input
+                  name="ciudadResidencia"
+                  required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Monterrey, NL"
@@ -90,6 +136,8 @@ export default function OperadoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">¿Qué tipo de unidad manejas?</span>
                 <input
+                  name="tipoUnidad"
+                  required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Ej. Tortón, Rabón, 3.5 toneladas"
@@ -98,6 +146,8 @@ export default function OperadoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">¿Qué transmisión manejas?</span>
                 <input
+                  name="transmision"
+                  required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Ej. Manual, automática, semiautomática"
@@ -105,7 +155,10 @@ export default function OperadoresPage() {
               </label>
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Visa estadounidense</span>
-                <select className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]">
+                <select
+                  name="visaEstadounidense"
+                  required
+                  className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]">
                   <option>Selecciona una opción</option>
                   <option>Sí</option>
                   <option>No</option>
@@ -115,6 +168,8 @@ export default function OperadoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Tipo de licencia</span>
                 <input
+                  name="tipoLicencia"
+                  required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Federal B, E, etc."
@@ -123,6 +178,8 @@ export default function OperadoresPage() {
               <label className="space-y-1">
                 <span className="text-sm font-semibold text-slate-700">Años de experiencia</span>
                 <input
+                  name="aniosExperiencia"
+                  required
                   type="number"
                   min={0}
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
@@ -132,6 +189,8 @@ export default function OperadoresPage() {
               <label className="space-y-1 md:col-span-2">
                 <span className="text-sm font-semibold text-slate-700">Rutas o zonas dominadas</span>
                 <textarea
+                  name="rutasDominadas"
+                  required
                   rows={4}
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Estados, carreteras o zonas donde tienes experiencia"
@@ -140,9 +199,10 @@ export default function OperadoresPage() {
               <div className="md:col-span-2">
                 <button
                   type="submit"
-                  className="w-full rounded-sm bg-[var(--navy-900)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--navy-800)]"
+                  disabled={submitStatus === "sending"}
+                  className="w-full rounded-sm bg-[var(--navy-900)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--navy-800)] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Enviar postulación
+                  {submitStatus === "sending" ? "Enviando..." : "Enviar postulación"}
                 </button>
               </div>
             </form>

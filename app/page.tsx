@@ -108,7 +108,7 @@ export default function Home() {
           <div className="mx-auto flex w-full max-w-[1440px] items-center justify-end gap-6">
             <a href="/proveedores" className="transition hover:text-[var(--navy-900)]">Únete al equipo</a>
             <a href="/operadores" className="transition hover:text-[var(--navy-900)]">Operadores</a>
-            <a href="https://wa.me/+5281" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 rounded-lg font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md active:scale-95"> Urgencias / WhatsApp </a>
+            <a href="https://wa.me/+528111777761" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 rounded-lg font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md active:scale-95"> Urgencias / WhatsApp </a>
           </div>
         </div>
 
@@ -496,7 +496,7 @@ export default function Home() {
               </p>
               <div className="space-y-2 rounded-sm border border-white/20 bg-white/5 p-4 text-sm text-slate-100">
                 <p>
-                  <span className="font-semibold text-white">Teléfonos/Whatsapp:</span> +52 (81) 3087 6945 | +52 (81) 3087 6945
+                  <span className="font-semibold text-white">Teléfonos/Whatsapp:</span> +52 (81) 3087 6945 | +52 (81) 1177 7761
                 </p>
                 <p>
                   <span className="font-semibold text-white">Correos:</span> ventas1@waytogo.com.mx | ventas2@waytogo.com.mx 

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { sendToAppsScript } from "@/lib/sendToAppsScript";
 
 type UnitOption = {
   id: string;
@@ -72,6 +73,7 @@ const cargoTypes = [
   "Servicio dedicado",
 ];
 
+
 export default function CotizacionPage() {
   const [selectedUnitId, setSelectedUnitId] = useState(units[0].id);
   const [distanceKm, setDistanceKm] = useState(500);
@@ -95,6 +97,7 @@ export default function CotizacionPage() {
     [selectedUnitId],
   );
 
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const estimatedTotal = selectedUnit.ratePerKm * distanceKm;
   const tollEstimate = Math.round(estimatedTotal * 0.08);
   const handlingEstimate = cargoType === "Hazmat" ? 1800 : cargoType === "Refrigerada" ? 1200 : cargoType === "Importación / Exportación" ? 1500 : 900;
@@ -113,34 +116,49 @@ export default function CotizacionPage() {
     }));
   };
 
-  const handleDetailedQuoteSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleDetailedQuoteSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  setSubmitStatus("sending");
 
-    const mailSubject = `Cotización detallada - ${detailedQuoteForm.nombreEmpresa || detailedQuoteForm.nombre || "Nuevo prospecto"}`;
-    const mailBody = [
-      "Cotización detallada",
-      "",
-      `Nombre: ${detailedQuoteForm.nombre} ${detailedQuoteForm.apellido}`,
-      `Teléfono de oficina: ${detailedQuoteForm.telefonoOficina}`,
-      `Celular: ${detailedQuoteForm.celular}`,
-      `Correo empresarial: ${detailedQuoteForm.correoEmpresarial}`,
-      `Nombre de la empresa: ${detailedQuoteForm.nombreEmpresa}`,
-      `Origen: ${detailedQuoteForm.origen}`,
-      `Destino: ${detailedQuoteForm.destino}`,
-      `Material a cargar: ${detailedQuoteForm.material}`,
-      `Peso y dimensiones / pallets: ${detailedQuoteForm.detalleCarga}`,
-      "",
-      `Unidad de referencia: ${selectedUnit.name}`,
-      `Tipo de carga de referencia: ${cargoType}`,
-      `Distancia de referencia: ${distanceKm} km`,
-      `Estimado referencial: ${currencyFormatter.format(detailedEstimate)}`,
-      `Detalle: tarifa base ${currencyFormatter.format(estimatedTotal)}, peajes ${currencyFormatter.format(tollEstimate)}, maniobras ${currencyFormatter.format(handlingEstimate)}, espera ${currencyFormatter.format(waitingEstimate)}`,
-    ].join("\n");
+  try {
+    await sendToAppsScript({
+      formType: "cotizacion",
+      nombre: detailedQuoteForm.nombre,
+      apellido: detailedQuoteForm.apellido,
+      telefonoOficina: detailedQuoteForm.telefonoOficina,
+      celular: detailedQuoteForm.celular,
+      correoEmpresarial: detailedQuoteForm.correoEmpresarial,
+      empresa: detailedQuoteForm.nombreEmpresa,
+      origenExacto: detailedQuoteForm.origen,
+      destinoExacto: detailedQuoteForm.destino,
+      material: detailedQuoteForm.material,
+      pesoDimensiones: detailedQuoteForm.detalleCarga,
+      unidad: selectedUnit.name,
+      tipoCarga: cargoType,
+      distanciaKm: distanceKm,
+      totalReferencial: currencyFormatter.format(detailedEstimate),
+    });
 
-    const mailtoLink = `mailto:ventas1@waytogo.com.mx?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+    setSubmitStatus("sent");
+    setIsDetailedModalOpen(false);
 
-    window.open(mailtoLink, "_blank", "noopener,noreferrer");
-  };
+    setDetailedQuoteForm({
+      nombre: "",
+      apellido: "",
+      telefonoOficina: "",
+      celular: "",
+      correoEmpresarial: "",
+      nombreEmpresa: "",
+      origen: "",
+      destino: "",
+      material: "",
+      detalleCarga: "",
+    });
+  } catch (error) {
+    console.error(error);
+    setSubmitStatus("error");
+  }
+};
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -156,7 +174,7 @@ export default function CotizacionPage() {
             Estima tu costo por km en menos de 1 minuto.
           </h1>
           <p className="max-w-3xl text-base text-slate-700">
-            Selecciona tipo de unidad, tipo de carga y distancia.
+            Selecciona tipo de unidad y distancia.
           </p>
         </div>
       </section>
@@ -164,19 +182,6 @@ export default function CotizacionPage() {
       <section className="mx-auto w-full max-w-[1100px] px-6 py-10 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-6 rounded-sm border border-slate-200 bg-white p-6 shadow-sm">
-            <div>
-              <label className="text-sm font-semibold text-slate-700">Tipo de carga</label>
-              <select
-                value={cargoType}
-                onChange={(event) => setCargoType(event.target.value)}
-                className="mt-2 w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-              >
-                {cargoTypes.map((type) => (
-                  <option key={type}>{type}</option>
-                ))}
-              </select>
-            </div>
-
             <div className="space-y-3">
               <p className="text-sm font-semibold text-slate-700">Unidad</p>
               <div className="grid gap-3">
@@ -251,9 +256,6 @@ export default function CotizacionPage() {
             <h2 className="text-2xl leading-tight font-bold text-[var(--navy-900)]">
               {selectedUnit.name}
             </h2>
-            <p className="text-sm text-slate-700">
-              Tipo de carga: <span className="font-semibold">{cargoType}</span>
-            </p>
             <p className="text-sm text-slate-700">
               Distancia: <span className="font-semibold">{distanceKm} km</span>
             </p>
@@ -442,7 +444,6 @@ export default function CotizacionPage() {
                 <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
                   <p className="font-semibold text-[var(--navy-900)]">Referencia de la cotización rápida</p>
                   <p className="mt-2">Unidad: {selectedUnit.name}</p>
-                  <p>Tipo de carga: {cargoType}</p>
                   <p>Distancia: {distanceKm} km</p>
                   <p>Total referencial: {currencyFormatter.format(detailedEstimate)}</p>
                 </div>
@@ -463,9 +464,10 @@ export default function CotizacionPage() {
                 </p>
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center rounded-sm bg-[var(--yellow-400)] px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:brightness-95"
+                  disabled={submitStatus === "sending"}
+                  className="inline-flex w-full items-center justify-center rounded-sm bg-[var(--yellow-400)] px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Enviar cotización al correo
+                  {submitStatus === "sending" ? "Enviando..." : "Enviar cotización"}
                 </button>
                 <button
                   type="button"
