@@ -96,6 +96,7 @@ export default function CotizacionPage() {
     () => units.find((unit) => unit.id === selectedUnitId) ?? units[0],
     [selectedUnitId],
   );
+  const selectedUnitDisplayName = selectedUnit.name.split(" /")[0];
 
   const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const estimatedTotal = selectedUnit.ratePerKm * distanceKm;
@@ -254,7 +255,7 @@ export default function CotizacionPage() {
               Resumen
             </p>
             <h2 className="text-2xl leading-tight font-bold text-[var(--navy-900)]">
-              {selectedUnit.name}
+              {selectedUnitDisplayName}
             </h2>
             <p className="text-sm text-slate-700">
               Distancia: <span className="font-semibold">{distanceKm} km</span>
@@ -443,7 +444,7 @@ export default function CotizacionPage() {
 
                 <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
                   <p className="font-semibold text-[var(--navy-900)]">Referencia de la cotización rápida</p>
-                  <p className="mt-2">Unidad: {selectedUnit.name}</p>
+                  <p className="mt-2">Unidad: {selectedUnitDisplayName}</p>
                   <p>Distancia: {distanceKm} km</p>
                   <p>Total referencial: {currencyFormatter.format(detailedEstimate)}</p>
                 </div>
@@ -454,7 +455,7 @@ export default function CotizacionPage() {
                   Resumen operativo
                 </p>
                 <div className="space-y-2 rounded-sm border border-slate-200 bg-white p-4 text-sm text-slate-700">
-                  <p><span className="font-semibold text-[var(--navy-900)]">Unidad:</span> {selectedUnit.name}</p>
+                  <p><span className="font-semibold text-[var(--navy-900)]">Unidad:</span> {selectedUnitDisplayName}</p>
                   <p><span className="font-semibold text-[var(--navy-900)]">Carga:</span> {cargoType}</p>
                   <p><span className="font-semibold text-[var(--navy-900)]">Ruta:</span> {distanceKm} km</p>
                   <p><span className="font-semibold text-[var(--navy-900)]">Referencia:</span> {currencyFormatter.format(detailedEstimate)}</p>
