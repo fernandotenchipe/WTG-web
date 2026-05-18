@@ -16,3 +16,27 @@ export async function sendToAppsScript(payload: Record<string, unknown>) {
 
   return true;
 }
+
+export function fileToBase64Payload(file: File): Promise<{
+  fileName: string;
+  mimeType: string;
+  base64: string;
+}> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const result = String(reader.result);
+      const base64 = result.split(",")[1];
+
+      resolve({
+        fileName: file.name,
+        mimeType: file.type,
+        base64,
+      });
+    };
+
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}

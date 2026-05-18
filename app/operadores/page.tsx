@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { sendToAppsScript } from "@/lib/sendToAppsScript";
+import { sendToAppsScript, fileToBase64Payload } from "@/lib/sendToAppsScript";
 
 export default function OperadoresPage() {
 
@@ -13,6 +13,21 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 
   const form = event.currentTarget;
   const formData = new FormData(form);
+  const pdfFile = formData.get("pdf") as File | null;
+
+if (!pdfFile || pdfFile.size === 0) {
+  throw new Error("Falta subir el PDF");
+}
+
+if (pdfFile.type !== "application/pdf") {
+  throw new Error("Solo se permite PDF");
+}
+
+if (pdfFile.size > 8 * 1024 * 1024) {
+  throw new Error("El PDF no debe pesar más de 8 MB");
+}
+
+const pdf = await fileToBase64Payload(pdfFile);
 
   setSubmitStatus("sending");
 
@@ -29,6 +44,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       tipoLicencia: String(formData.get("tipoLicencia") || ""),
       aniosExperiencia: String(formData.get("aniosExperiencia") || ""),
       rutasDominadas: String(formData.get("rutasDominadas") || ""),
+      pdf,
     });
 
     form.reset();
@@ -194,6 +210,18 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
                   rows={4}
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                   placeholder="Estados, carreteras o zonas donde tienes experiencia"
+                />
+              </label>
+              <label className="space-y-1 md:col-span-2">
+                <span className="text-sm font-semibold text-slate-700">
+                  CV en PDF
+                </span>
+                <input
+                  name="pdf"
+                  type="file"
+                  accept="application/pdf"
+                  required
+                  className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800"
                 />
               </label>
               <div className="md:col-span-2">
