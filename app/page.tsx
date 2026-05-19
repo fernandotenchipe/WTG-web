@@ -83,7 +83,7 @@ export default function Home() {
         "Unidad de capacidad intermedia para operaciones que requieren mayor espacio sin utilizar una unidad completa de mayor dimensión.",
     },
     {
-      type: "Tortón",
+      type: "Torton",
       capacity: "Capacidad: 14 tons",
       image: "/images/torton.png",
       alt: "Unidad Torton para operaciones de mayor volumen y peso",

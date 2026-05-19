@@ -57,7 +57,7 @@ const pdf = await fileToBase64Payload(pdfFile);
 };
 
 
-  const unitOptions = ["Nissan / Unidad ligera", "Camión 3.5", "Rabón", "Tortón", "Caja de 53’"];
+  const unitOptions = ["Nissan / Unidad ligera", "Camión 3.5", "Rabón", "Torton", "Caja de 53’"];
   const serviceOptions = [
     "General",
     "Thermo",

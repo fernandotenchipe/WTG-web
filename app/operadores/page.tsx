@@ -158,7 +158,7 @@ const pdf = await fileToBase64Payload(pdfFile);
                   required
                   type="text"
                   className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
-                  placeholder="Ej. Tortón, Rabón, 3.5 toneladas"
+                  placeholder="Ej. Torton, Rabón, 3.5 toneladas"
                 />
               </label>
               <label className="space-y-1">
@@ -287,10 +287,10 @@ const pdf = await fileToBase64Payload(pdfFile);
                 </div>
                 <div className="flex items-center gap-3 rounded-sm border border-slate-200 bg-white p-3 shadow-sm">
                   <div className="relative h-12 w-16 overflow-hidden rounded-sm bg-slate-100">
-                    <Image src="/images/torton.png" alt="Unidad Tortón" fill className="object-contain" />
+                    <Image src="/images/torton.png" alt="Unidad Torton" fill className="object-contain" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[var(--navy-900)]">Tortón</p>
+                    <p className="text-sm font-semibold text-[var(--navy-900)]">Torton</p>
                     <p className="text-xs text-slate-600">Alta capacidad</p>
                   </div>
                 </div>

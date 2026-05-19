@@ -50,7 +50,7 @@ const units: UnitOption[] = [
   },
   {
     id: "torton",
-    name: "Tortón",
+    name: "Torton",
     ratePerKm: 39,
     image: "/images/torton.png",
     detail: "Mayor capacidad para carga pesada.",
