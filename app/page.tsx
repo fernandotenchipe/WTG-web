@@ -504,9 +504,6 @@ export default function Home() {
                 <p>
                   <span className="font-semibold text-white">Ubicación:</span> Salinas Victoria, Nuevo León, México
                 </p>
-                <p>
-                  <span className="font-semibold text-white">Atención:</span> Lunes a Domingo 08:00 a 19:00 | Monitoreo 24/7 en ruta
-                </p>
               </div>
             </div>
 
@@ -561,12 +558,11 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto grid w-full max-w-[1440px] gap-6 px-6 py-8 text-sm text-slate-600 md:grid-cols-3 lg:px-10">
+        <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-6 py-8 text-sm text-slate-600 md:grid-cols-3 lg:px-10">
           <div>
             <p className="font-semibold text-[var(--navy-900)]">WTG | Way To Go</p>
-            <p className="mt-1">Transporte de carga por carretera nacional y cross-border.</p>
-            <p className="mt-1">Monterrey, Nuevo Leon | +52 (81) 3087 6945</p>
-            <p className="mt-1">ventas1@waytogo.com.mx</p>
+            <p className="mt-1 max-w-sm">Transporte de carga por carretera nacional y cross-border.</p>
+            <p className="mt-3 max-w-sm">Coordinamos operaciones nacionales e internacionales con seguimiento operativo y atención directa desde Monterrey.</p>
           </div>
           <div>
             <p className="font-semibold text-[var(--navy-900)]">Navegacion</p>
@@ -577,13 +573,14 @@ export default function Home() {
               <p><a href="#contacto" className="transition hover:text-[var(--navy-900)]">Contacto</a></p>
             </div>
           </div>
-          {/* <div>
-            <p className="font-semibold text-[var(--navy-900)]">Aviso legal</p>
-            <p className="mt-2">Aviso de privacidad y tratamiento de datos para solicitudes comerciales.</p>
-            <a href="#" className="mt-1 inline-flex transition hover:text-[var(--navy-900)]">
-              Consultar aviso de privacidad
-            </a>
-          </div> */}
+          <div>
+            <p className="font-semibold text-[var(--navy-900)]">Contacto</p>
+            <div className="mt-2 space-y-2">
+              <p>Teléfonos/Whatsapp: +52 (81) 3087 6945 | +52 (81) 1177 7761</p>
+              <p>Correos: ventas1@waytogo.com.mx | ventas2@waytogo.com.mx</p>
+              <p>Ubicación: Salinas Victoria, Nuevo León, México</p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
