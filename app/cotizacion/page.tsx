@@ -232,18 +232,18 @@ export default function CotizacionPage() {
               <input
                 id="distancia"
                 type="range"
-                min={50}
+                min={500}
                 max={2000}
                 step={10}
                 value={distanceKm}
-                onChange={(event) => setDistanceKm(Number(event.target.value))}
+                onChange={(event) => setDistanceKm(Math.max(500, Number(event.target.value)))}
                 className="w-full accent-[var(--navy-900)]"
               />
               <input
                 type="number"
-                min={1}
+                min={500}
                 value={distanceKm}
-                onChange={(event) => setDistanceKm(Math.max(1, Number(event.target.value) || 0))}
+                onChange={(event) => setDistanceKm(Math.max(500, Number(event.target.value) || 500))}
                 className="w-full rounded-sm border border-slate-300 px-3 py-2 text-slate-800 outline-none transition focus:border-[var(--navy-800)]"
                 placeholder="Distancia en km"
               />
@@ -266,6 +266,9 @@ export default function CotizacionPage() {
                 ${estimatedTotal.toLocaleString("es-MX")} MXN
               </p>
             </div>
+            <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy-900)]">
+              El cotizador rápido solo es para territorio nacional
+            </p>
             <p className="text-xs text-slate-500">
               Estimado referencial. Puede variar por peajes, maniobras, tiempos de espera, ventana de carga y condiciones de operación.
             </p>

@@ -65,7 +65,7 @@ const pdf = await fileToBase64Payload(pdfFile);
     "Impo/Expo",
     "Ingreso a Aeropuertos",
     "Servicios Dedicados",
-    "U.S. Domestic Freight Transportation",
+    "U.S. Domestic",
     "Más",
   ];
   const coverageOptions = ["Nacional", "Internacional"];

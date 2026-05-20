@@ -496,10 +496,10 @@ export default function Home() {
               </p>
               <div className="space-y-2 rounded-sm border border-white/20 bg-white/5 p-4 text-sm text-slate-100">
                 <p>
-                  <span className="font-semibold text-white">Teléfonos/Whatsapp:</span> +52 (81) 3087 6945 | +52 (81) 1177 7761
+                  <span className="font-semibold text-white">Teléfonos/Whatsapp:</span> +52 (81) 3087 6945 | +52 (81) 1177 7761 | +52 (81) 1689 9958
                 </p>
                 <p>
-                  <span className="font-semibold text-white">Correos:</span> ventas1@waytogo.com.mx | ventas2@waytogo.com.mx 
+                  <span className="font-semibold text-white">Correos:</span> ventas1@waytogo.com.mx | ventas2@waytogo.com.mx | ventas3@waytogo.com.mx | ventas4@waytogo.com.mx
                 </p>
                 <p>
                   <span className="font-semibold text-white">Ubicación:</span> Salinas Victoria, Nuevo León, México
@@ -577,7 +577,7 @@ export default function Home() {
             <p className="font-semibold text-[var(--navy-900)]">Contacto</p>
             <div className="mt-2 space-y-2">
               <p>Teléfonos/Whatsapp: +52 (81) 3087 6945 | +52 (81) 1177 7761</p>
-              <p>Correos: ventas1@waytogo.com.mx | ventas2@waytogo.com.mx</p>
+              <p>Correos: ventas1@waytogo.com.mx | ventas2@waytogo.com.mx | ventas3@waytogo.com.mx | ventas4@waytogo.com.mx</p>
               <p>Ubicación: Salinas Victoria, Nuevo León, México</p>
             </div>
           </div>
