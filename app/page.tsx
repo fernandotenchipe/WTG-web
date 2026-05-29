@@ -596,16 +596,16 @@ export default function Home() {
           </div>
           <div>
             <p className="font-semibold text-[var(--navy-900)]">Redes sociales</p>
-            <div className="mt-3 space-y-2">
+            <div className="mt-3 space-y-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-slate-600 transition hover:text-[var(--navy-900)]"
+                  className="flex flex-col items-start gap-2 text-slate-600 transition hover:text-[var(--navy-900)]"
                 >
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[var(--navy-900)]">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[var(--navy-900)]">
                     {social.icon}
                   </span>
                   <span className="font-medium">{social.name}</span>
