@@ -100,6 +100,36 @@ export default function Home() {
     },
   ];
 
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/way-to-go-transporte-logistica/",
+      icon: (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+          <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.2 8h4.6v15H.2V8zm7.6 0h4.41v2.05h.06c.61-1.16 2.1-2.38 4.32-2.38 4.63 0 5.48 3.05 5.48 7.02V23h-4.6v-6.84c0-1.63-.03-3.73-2.27-3.73-2.28 0-2.63 1.78-2.63 3.62V23H7.8V8z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/waytogo.logistics/",
+      icon: (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+          <path d="M7 1C3.69 1 1 3.69 1 7v10c0 3.31 2.69 6 6 6h10c3.31 0 6-2.69 6-6V7c0-3.31-2.69-6-6-6H7zm10 2c2.21 0 4 1.79 4 4v10c0 2.21-1.79 4-4 4H7c-2.21 0-4-1.79-4-4V7c0-2.21 1.79-4 4-4h10zm-5 3.5A5.5 5.5 0 1 0 17.5 12 5.51 5.51 0 0 0 12 6.5zm0 9A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5zM18 5.2a1.3 1.3 0 1 0 1.3 1.3A1.3 1.3 0 0 0 18 5.2z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/p/Waytogo-61570381545454/",
+      icon: (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+          <path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.6c0-.9.2-1.5 1.5-1.5h1.8V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.5v3.2h2.6V22h3.4z" />
+        </svg>
+      ),
+    },
+  ];
+
   return (
     <div className="bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm">
@@ -565,12 +595,22 @@ export default function Home() {
             <p className="mt-3 max-w-sm">Coordinamos operaciones nacionales e internacionales con seguimiento operativo y atención directa desde Monterrey.</p>
           </div>
           <div>
-            <p className="font-semibold text-[var(--navy-900)]">Navegacion</p>
-            <div className="mt-2 space-y-1">
-              <p><a href="#inicio" className="transition hover:text-[var(--navy-900)]">Inicio</a></p>
-              <p><a href="#nosotros" className="transition hover:text-[var(--navy-900)]">Nosotros</a></p>
-              <p><a href="#servicios" className="transition hover:text-[var(--navy-900)]">Servicios</a></p>
-              <p><a href="#contacto" className="transition hover:text-[var(--navy-900)]">Contacto</a></p>
+            <p className="font-semibold text-[var(--navy-900)]">Redes sociales</p>
+            <div className="mt-3 space-y-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 text-slate-600 transition hover:text-[var(--navy-900)]"
+                >
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[var(--navy-900)]">
+                    {social.icon}
+                  </span>
+                  <span className="font-medium">{social.name}</span>
+                </a>
+              ))}
             </div>
           </div>
           <div>
@@ -581,6 +621,9 @@ export default function Home() {
               <p>Ubicación: Salinas Victoria, Nuevo León, México</p>
             </div>
           </div>
+        </div>
+        <div className="border-t border-slate-200 px-6 py-4 text-center text-[11px] text-slate-500 lg:px-10">
+          © 2026 WayToGo. Todos los derechos reservados.
         </div>
       </footer>
     </div>
