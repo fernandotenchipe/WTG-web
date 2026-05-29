@@ -588,7 +588,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-6 py-8 text-sm text-slate-600 md:grid-cols-2 lg:px-10">
+        <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-6 py-8 text-sm text-slate-600 md:grid-cols-3 lg:px-10">
           <div>
             <p className="font-semibold text-[var(--navy-900)]">WTG | Way To Go</p>
             <p className="mt-1 max-w-sm">Transporte de carga por carretera nacional y cross-border.</p>
@@ -596,24 +596,41 @@ export default function Home() {
           </div>
           <div>
             <p className="font-semibold text-[var(--navy-900)]">Redes sociales</p>
-            <div className="mt-3 space-y-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-start gap-2 text-slate-600 transition hover:text-[var(--navy-900)]"
-                >
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[var(--navy-900)]">
-                    {social.icon}
-                  </span>
-                  <span className="font-medium">{social.name}</span>
-                </a>
-              ))}
+            <div className="mt-3">
+              <div className="grid grid-cols-2 gap-4">
+                {socialLinks.slice(0, 2).map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 text-slate-600 transition hover:text-[var(--navy-900)]"
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[var(--navy-900)]">
+                      {social.icon}
+                    </span>
+                    <span className="font-medium">{social.name}</span>
+                  </a>
+                ))}
+              </div>
+              <div className="mt-4 flex justify-start">
+                {socialLinks[2] && (
+                  <a
+                    href={socialLinks[2].href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 text-slate-600 transition hover:text-[var(--navy-900)]"
+                  >
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[var(--navy-900)]">
+                      {socialLinks[2].icon}
+                    </span>
+                    <span className="font-medium">{socialLinks[2].name}</span>
+                  </a>
+                )}
+              </div>
             </div>
           </div>
-          <div className="md:col-span-2 lg:col-span-2">
+          <div>
             <p className="font-semibold text-[var(--navy-900)]">Contacto</p>
             <div className="mt-2 space-y-2">
               <p>Teléfonos/Whatsapp: +52 (81) 3087 6945 | +52 (81) 1177 7761</p>
