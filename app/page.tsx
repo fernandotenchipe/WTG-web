@@ -588,7 +588,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-6 py-8 text-sm text-slate-600 md:grid-cols-3 lg:px-10">
+        <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-6 py-8 text-sm text-slate-600 md:grid-cols-2 lg:px-10">
           <div>
             <p className="font-semibold text-[var(--navy-900)]">WTG | Way To Go</p>
             <p className="mt-1 max-w-sm">Transporte de carga por carretera nacional y cross-border.</p>
@@ -613,7 +613,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div>
+          <div className="md:col-span-2 lg:col-span-2">
             <p className="font-semibold text-[var(--navy-900)]">Contacto</p>
             <div className="mt-2 space-y-2">
               <p>Teléfonos/Whatsapp: +52 (81) 3087 6945 | +52 (81) 1177 7761</p>
