@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
@@ -33,7 +34,10 @@ export default function RootLayout({
       lang="es"
       className={`${barlowCondensed.variable} ${sourceSans.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
